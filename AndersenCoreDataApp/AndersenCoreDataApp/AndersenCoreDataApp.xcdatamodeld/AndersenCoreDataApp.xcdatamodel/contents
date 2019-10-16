@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="19B68f" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Channel" representedClassName="Channel" syncable="YES" codeGenerationType="class">
-        <attribute name="logoChannel" optional="YES" attributeType="Binary"/>
+        <attribute name="logoChannel" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="nameChannel" optional="YES" attributeType="String"/>
     </entity>
     <elements>

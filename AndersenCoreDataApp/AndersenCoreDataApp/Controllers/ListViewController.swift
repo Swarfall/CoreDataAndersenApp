@@ -40,12 +40,12 @@ class ListViewController: UIViewController {
                 for r in results as! [NSManagedObject] {
                     
                     guard let name = r.value(forKey: "nameChannel") as? String else { return }
-                    //guard let image = r.value(forKey: "logoChannel") as? Data else { return }
+                    guard let image = r.value(forKey: "logoChannel") as? Data else { return }
                     
                     let channel = ChannalModel()
                     
                     channel.nameChannel = name
-                    //channel.logoImage = UIImage(data: image)
+                    channel.logoImage = UIImage(data: image)
                     
                     channelModel.append(channel)
                 }
