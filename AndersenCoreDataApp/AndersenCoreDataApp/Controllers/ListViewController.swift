@@ -13,7 +13,7 @@ class ListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var channelModel: [ChannalModel] = []
+    var channelModel: [Channel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class ListViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Channel")
+        let request = Channel.fetchRequest
         request.returnsObjectsAsFaults = false
         
         do {
@@ -85,12 +85,15 @@ extension ListViewController: ChannelCellDelegate {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: "Channel")
+        let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: Channel)
         requestDel.returnsObjectsAsFaults = false
         
         do {
             let result = try context.fetch(requestDel)
             context.delete(result[index] as! NSManagedObject)
+            DispatchQueue.main.async {
+                tableView.reloadData()
+            }
         } catch {
             print("Error: \(error)")
         }

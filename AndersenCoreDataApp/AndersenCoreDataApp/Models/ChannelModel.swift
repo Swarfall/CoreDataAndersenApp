@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-final class ChannalModel {
-    var nameChannel: String?
-    var logoImage: UIImage?
-}
+//final class ChannalModel {
+//    var nameChannel: String?
+//    var logoImage: UIImage?
+//}
