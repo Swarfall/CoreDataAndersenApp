@@ -72,7 +72,33 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChannelCell", for: indexPath) as! ChannelCell
+        cell.index = indexPath.row
+        cell.delegate = self
         cell.update(channel: channelModel[indexPath.row])
         return cell
+    }
+}
+
+extension ListViewController: ChannelCellDelegate {
+    
+    func deleteChannel(index: Int) {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: "Channel")
+        requestDel.returnsObjectsAsFaults = false
+        
+        do {
+            let result = try context.fetch(requestDel)
+            context.delete(result[index] as! NSManagedObject)
+        } catch {
+            print("Error: \(error)")
+        }
+        
+        do {
+            try context.save()
+        } catch {
+            print("Error: \(error)")
+        }
     }
 }

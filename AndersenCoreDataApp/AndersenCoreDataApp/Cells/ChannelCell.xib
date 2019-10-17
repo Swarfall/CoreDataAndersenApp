@@ -28,6 +28,9 @@
                             <constraint firstAttribute="width" constant="50" id="Y0R-Vo-EWP"/>
                         </constraints>
                         <state key="normal" image="trash" catalog="system"/>
+                        <connections>
+                            <action selector="didTapDeleteChannelButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="L8r-3O-9dc"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ei2-pT-qSl">
                         <rect key="frame" x="108" y="8" width="248" height="84"/>

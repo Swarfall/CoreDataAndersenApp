@@ -8,10 +8,17 @@
 
 import UIKit
 
+protocol ChannelCellDelegate {
+    func deleteChannel(index: Int)
+}
+
 class ChannelCell: UITableViewCell {
 
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var nameChannelLabel: UILabel!
+    
+    var delegate: ChannelCellDelegate?
+    var index: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,4 +35,10 @@ class ChannelCell: UITableViewCell {
         logoImageView.image = channel.logoImage
         nameChannelLabel.text = channel.nameChannel
     }
+    
+    @IBAction func didTapDeleteChannelButton(_ sender: Any) {
+        delegate?.deleteChannel(index: index!)
+    }
+    
+    
 }
