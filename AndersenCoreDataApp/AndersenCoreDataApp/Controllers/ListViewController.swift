@@ -30,22 +30,22 @@ class ListViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        let request = NSFetchRequest<NSManagedObject>(entityName: Channel.self)
+        let request = NSFetchRequest<Channel>(entityName: "Channel")
         request.returnsObjectsAsFaults = false
         
         do {
             let results = try context.fetch(request)
             
             if results.count > 0 {
-                for r in results as! [NSManagedObject] {
+                for r in results {
                     
                     guard let name = r.value(forKey: "nameChannel") as? String else { return }
                     guard let image = r.value(forKey: "logoChannel") as? Data else { return }
                     
-                    let channel = ChannalModel()
+                    let channel = Channel()
                     
                     channel.nameChannel = name
-                    channel.logoImage = UIImage(data: image)
+                    channel.logoChannel = image
                     
                     channelModel.append(channel)
                 }

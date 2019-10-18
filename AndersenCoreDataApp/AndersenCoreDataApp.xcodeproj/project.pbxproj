@@ -17,7 +17,6 @@
 		84DFC0EF2356330200585E99 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFC0EE2356330200585E99 /* ListViewController.swift */; };
 		84DFC0F5235633B000585E99 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFC0F3235633B000585E99 /* ChannelCell.swift */; };
 		84DFC0F6235633B000585E99 /* ChannelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC0F4235633B000585E99 /* ChannelCell.xib */; };
-		84DFC0F8235636A600585E99 /* ChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFC0F7235636A600585E99 /* ChannelModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +34,6 @@
 		84DFC0EE2356330200585E99 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		84DFC0F3235633B000585E99 /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		84DFC0F4235633B000585E99 /* ChannelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelCell.xib; sourceTree = "<group>"; };
-		84DFC0F7235636A600585E99 /* ChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +101,6 @@
 		84DFC0F22356336800585E99 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				84DFC0F7235636A600585E99 /* ChannelModel.swift */,
 				842F09652358A17D00F58CBA /* Channel+CoreDataClass.swift */,
 				842F09662358A17D00F58CBA /* Channel+CoreDataProperties.swift */,
 			);
@@ -188,7 +185,6 @@
 				84DFC0D82356319100585E99 /* AppDelegate.swift in Sources */,
 				84DFC0EF2356330200585E99 /* ListViewController.swift in Sources */,
 				84DFC0DA2356319100585E99 /* SceneDelegate.swift in Sources */,
-				84DFC0F8235636A600585E99 /* ChannelModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
