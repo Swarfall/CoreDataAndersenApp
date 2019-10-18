@@ -30,7 +30,7 @@ class ListViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        let request = Channel.fetchRequest
+        let request = NSFetchRequest<NSManagedObject>(entityName: Channel.self)
         request.returnsObjectsAsFaults = false
         
         do {
@@ -85,14 +85,14 @@ extension ListViewController: ChannelCellDelegate {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: Channel)
+        let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: "Channel")
         requestDel.returnsObjectsAsFaults = false
         
         do {
             let result = try context.fetch(requestDel)
             context.delete(result[index] as! NSManagedObject)
             DispatchQueue.main.async {
-                tableView.reloadData()
+                self.tableView.reloadData()
             }
         } catch {
             print("Error: \(error)")

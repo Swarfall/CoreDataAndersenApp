@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        let newChannel = NSEntityDescription.insertNewObject(forEntityName: Channel.self, into: context)
+        let newChannel = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: context)
         newChannel.setValue(nameChannelTextField.text, forKey: "nameChannel")
         
         let image = UIImage(named: "greyYT")

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		842F09672358A17D00F58CBA /* Channel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F09652358A17D00F58CBA /* Channel+CoreDataClass.swift */; };
-		842F09682358A17D00F58CBA /* Channel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F09662358A17D00F58CBA /* Channel+CoreDataProperties.swift */; };
 		84DFC0D82356319100585E99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFC0D72356319100585E99 /* AppDelegate.swift */; };
 		84DFC0DA2356319100585E99 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFC0D92356319100585E99 /* SceneDelegate.swift */; };
 		84DFC0DC2356319100585E99 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFC0DB2356319100585E99 /* MainViewController.swift */; };
@@ -187,12 +185,10 @@
 				84DFC0E22356319100585E99 /* AndersenCoreDataApp.xcdatamodeld in Sources */,
 				84DFC0F5235633B000585E99 /* ChannelCell.swift in Sources */,
 				84DFC0DC2356319100585E99 /* MainViewController.swift in Sources */,
-				842F09672358A17D00F58CBA /* Channel+CoreDataClass.swift in Sources */,
 				84DFC0D82356319100585E99 /* AppDelegate.swift in Sources */,
 				84DFC0EF2356330200585E99 /* ListViewController.swift in Sources */,
 				84DFC0DA2356319100585E99 /* SceneDelegate.swift in Sources */,
 				84DFC0F8235636A600585E99 /* ChannelModel.swift in Sources */,
-				842F09682358A17D00F58CBA /* Channel+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

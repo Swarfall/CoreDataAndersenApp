@@ -31,8 +31,8 @@ class ChannelCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func update(channel: ChannalModel) {
-        logoImageView.image = channel.logoImage
+    func update(channel: Channel) {
+        logoImageView.image = UIImage(data: channel.logoChannel ?? Data())
         nameChannelLabel.text = channel.nameChannel
     }
     
