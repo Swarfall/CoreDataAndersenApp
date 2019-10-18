@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F4A732E0-AA87-4598-BD1E-D3534CEAC1BE"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AndersenCoreDataApp/Controllers/ListViewController.swift"
@@ -30,8 +30,8 @@
             filePath = "AndersenCoreDataApp/Controllers/ListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "deleteChannel(index:)"
             landmarkType = "7">
          </BreakpointContent>

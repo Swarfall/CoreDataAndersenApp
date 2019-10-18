@@ -30,7 +30,7 @@ class ListViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        let request = NSFetchRequest<NSManagedObject>(entityName: "Channel")
+        let request: NSFetchRequest<Channel> = Channel.fetchRequest()
         request.returnsObjectsAsFaults = false
         
         do {
@@ -39,11 +39,13 @@ class ListViewController: UIViewController {
             if results.count > 0 {
                 for r in results {
                     
-                    guard let name = r.value(forKey: "nameChannel") as? String else { return }
-                    guard let image = r.value(forKey: "logoChannel") as? Data else { return }
+                    guard let name = r.nameChannel else { return }
+                    guard let image = r.logoChannel else { return }
                     
-                    let channel = Channel()
-                    
+                    //
+                    let channel = Channel(context: context)
+                    //let channel = Channel()
+                    //
                     channel.nameChannel = name
                     channel.logoChannel = image
                     
@@ -85,14 +87,15 @@ extension ListViewController: ChannelCellDelegate {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: "Channel")
+        let requestDel: NSFetchRequest<Channel> = Channel.fetchRequest()
         requestDel.returnsObjectsAsFaults = false
         
         do {
             let result = try context.fetch(requestDel)
-            context.delete(result[index] as! NSManagedObject)
+            context.delete(result[index] as NSManagedObject)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                print("delete")
             }
         } catch {
             print("Error: \(error)")
