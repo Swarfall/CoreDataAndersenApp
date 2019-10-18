@@ -30,7 +30,7 @@ class ListViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        let request = NSFetchRequest<Channel>(entityName: "Channel")
+        let request = NSFetchRequest<NSManagedObject>(entityName: "Channel")
         request.returnsObjectsAsFaults = false
         
         do {
