@@ -19,13 +19,13 @@ class ListViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "ChannelCell", bundle: nil), forCellReuseIdentifier: "ChannelCell")
+        requestCoreData()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.reloadData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    func requestCoreData() {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -42,10 +42,8 @@ class ListViewController: UIViewController {
                     guard let name = r.nameChannel else { return }
                     guard let image = r.logoChannel else { return }
                     
-                    //
                     let channel = Channel(context: context)
-                    //let channel = Channel()
-                    //
+                    
                     channel.nameChannel = name
                     channel.logoChannel = image
                     
@@ -93,6 +91,7 @@ extension ListViewController: ChannelCellDelegate {
         do {
             let result = try context.fetch(requestDel)
             context.delete(result[index] as NSManagedObject)
+            channelModel.remove(at: index)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 print("delete")
