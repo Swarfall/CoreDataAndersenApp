@@ -25,7 +25,7 @@ class ListViewController: UIViewController {
         tableView.reloadData()
     }
     
-    func requestCoreData() {
+    private func requestCoreData() {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext

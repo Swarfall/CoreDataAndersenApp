@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
     }
     
     @IBAction func didTapSubscribeButton(_ sender: Any) {
@@ -25,18 +25,21 @@ class MainViewController: UIViewController {
         let context = appDelegate.persistentContainer.viewContext
         
         let newChannel = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: context)
-        newChannel.setValue(nameChannelTextField.text, forKey: "nameChannel")
+            newChannel.setValue(self.nameChannelTextField.text, forKey: "nameChannel")
         
         let image = UIImage(named: "greyYT")
         let dataImage = image?.pngData()
         newChannel.setValue(dataImage!, forKey: "logoChannel")
-        
-        do {
-            try context.save()
-            print("Context save")
-        } catch {
-            print("Error")
+
+        appDelegate.persistentContainer.performBackgroundTask { (context) in
+            do {
+                try context.save()
+                print("Context save")
+            } catch {
+                print("Error")
+            }
         }
+        nameChannelTextField.text = ""
     }
     
     @IBAction func didTapGoToListVCButton(_ sender: Any) {
