@@ -100,10 +100,13 @@ extension ListViewController: ChannelCellDelegate {
             print("Error: \(error)")
         }
         
-        do {
-            try context.save()
-        } catch {
-            print("Error: \(error)")
+        DispatchQueue.main.async {
+            do {
+                try context.save()
+                print("save")
+            } catch {
+                print("Error: \(error)")
+            }
         }
     }
 }
