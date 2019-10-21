@@ -36,20 +36,7 @@ class ListViewController: UIViewController {
         do {
             let results = try context.fetch(request)
             
-            if results.count > 0 {
-                for r in results {
-                    
-                    guard let name = r.nameChannel else { return }
-                    guard let image = r.logoChannel else { return }
-                    
-                    let channel = Channel(context: context)
-                    
-                    channel.nameChannel = name
-                    channel.logoChannel = image
-                    
-                    channelModel.append(channel)
-                }
-            }
+               channelModel = results
         } catch {
             print("ERROR")
         }
@@ -92,6 +79,7 @@ extension ListViewController: ChannelCellDelegate {
             let result = try context.fetch(requestDel)
             context.delete(result[index] as NSManagedObject)
             channelModel.remove(at: index)
+            try context.save()
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 print("delete")
@@ -107,6 +95,9 @@ extension ListViewController: ChannelCellDelegate {
             } catch {
                 print("Error: \(error)")
             }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.requestCoreData()
         }
     }
 }

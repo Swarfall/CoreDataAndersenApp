@@ -37,7 +37,6 @@ class MainViewController: UIViewController {
         } catch {
             print("Error")
         }
-        
     }
     
     @IBAction func didTapGoToListVCButton(_ sender: Any) {
