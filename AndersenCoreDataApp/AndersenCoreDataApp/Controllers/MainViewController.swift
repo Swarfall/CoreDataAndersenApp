@@ -43,7 +43,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func didTapGoToListVCButton(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "ListViewController") as! ListViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "FetchedVC") as! FetchedVC
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
