@@ -33,12 +33,6 @@ class FetchedVC: UIViewController {
         super.viewDidLoad()
         
         persistentContainer.loadPersistentStores { (persistentStoreDescription, error) in
-            if let _ = error {
-                print("Error: \(String(describing: error))")
-            } else {
-                self.tableView.reloadData()
-            }
-            
             do {
                 try self.fetchedResultsController.performFetch()
             } catch {
