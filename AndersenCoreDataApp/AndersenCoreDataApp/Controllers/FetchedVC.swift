@@ -13,8 +13,8 @@ class FetchedVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private let persistentContainer = NSPersistentContainer(name: "Channel")
-    var channelModel: [Channel] = []
+    private let persistentContainer = NSPersistentContainer(name: "AndersenCoreDataApp")
+    //var channelModel: [Channel] = []
     
     fileprivate lazy var fetchedResultsController: NSFetchedResultsController<Channel> = {
         
@@ -53,23 +53,29 @@ class FetchedVC: UIViewController {
         tableView.reloadData()
     }
     
-
+    @IBAction func didTapPopVCButton(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension FetchedVC: UITableViewDelegate, UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        guard let channels = fetchedResultsController.fetchedObjects else { return 0 }
+//        return channels.count
+//    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let channels = fetchedResultsController.fetchedObjects else { return 0 }
         return channels.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return channelModel.count
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FetchedCell", for: indexPath) as! FetchedCell
-        cell.update(channel: channelModel[indexPath.row])
+        
+        let cellData = fetchedResultsController.object(at: indexPath)
+        cell.update(channel: cellData)
+        
         return cell
     }
 }

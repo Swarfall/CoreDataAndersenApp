@@ -91,7 +91,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VrB-3v-oOe">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FetchedCell" id="8oY-Lu-I3f">
@@ -104,12 +104,38 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5n-ZA-Lkj">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXd-dF-9Sb">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="gAe-eC-44Y"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="&lt;"/>
+                                        <connections>
+                                            <action selector="didTapPopVCButton:" destination="6PF-lz-Jq6" eventType="touchUpInside" id="vfx-j2-y3M"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="fXd-dF-9Sb" firstAttribute="top" secondItem="w5n-ZA-Lkj" secondAttribute="top" id="AMM-yS-52N"/>
+                                    <constraint firstAttribute="height" constant="44" id="KHS-11-7zA"/>
+                                    <constraint firstAttribute="bottom" secondItem="fXd-dF-9Sb" secondAttribute="bottom" id="PJ8-nT-YFS"/>
+                                    <constraint firstItem="fXd-dF-9Sb" firstAttribute="leading" secondItem="w5n-ZA-Lkj" secondAttribute="leading" id="ldB-qU-xMZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="w5n-ZA-Lkj" firstAttribute="trailing" secondItem="4yt-Au-Fa6" secondAttribute="trailing" id="6jf-E5-VH7"/>
+                            <constraint firstItem="w5n-ZA-Lkj" firstAttribute="leading" secondItem="4yt-Au-Fa6" secondAttribute="leading" id="F4g-QZ-CCg"/>
                             <constraint firstItem="4yt-Au-Fa6" firstAttribute="trailing" secondItem="VrB-3v-oOe" secondAttribute="trailing" id="WAk-Fm-ecE"/>
+                            <constraint firstItem="w5n-ZA-Lkj" firstAttribute="top" secondItem="4yt-Au-Fa6" secondAttribute="top" id="ZG0-i6-exX"/>
                             <constraint firstItem="4yt-Au-Fa6" firstAttribute="bottom" secondItem="VrB-3v-oOe" secondAttribute="bottom" id="h2p-zF-ZJc"/>
-                            <constraint firstItem="VrB-3v-oOe" firstAttribute="top" secondItem="4yt-Au-Fa6" secondAttribute="top" id="mJ5-0I-V7W"/>
+                            <constraint firstItem="VrB-3v-oOe" firstAttribute="top" secondItem="w5n-ZA-Lkj" secondAttribute="bottom" id="jID-Cx-xMh"/>
                             <constraint firstItem="VrB-3v-oOe" firstAttribute="leading" secondItem="4yt-Au-Fa6" secondAttribute="leading" id="vdH-j6-ENY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4yt-Au-Fa6"/>
@@ -120,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBj-5L-BZV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1967" y="115"/>
+            <point key="canvasLocation" x="1966.6666666666667" y="114.50892857142857"/>
         </scene>
         <!--List View Controller-->
         <scene sceneID="7hN-FB-tX4">

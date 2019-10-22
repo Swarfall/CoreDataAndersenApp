@@ -26,7 +26,7 @@ class FetchedCell: UITableViewCell {
     }
     
     func update(channel: Channel) {
-      //  fetchImageView.image = UIImage(data: channel.logoChannel ?? Data())
+        fetchImageView.image = UIImage(data: channel.logoChannel ?? Data())
         fetchLabel.text = channel.nameChannel ?? ""
     }
 }
