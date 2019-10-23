@@ -32,6 +32,10 @@ class FetchedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.register(UINib(nibName: "FetchedCell", bundle: nil), forCellReuseIdentifier: "FetchedCell")
+               tableView.delegate = self
+               tableView.dataSource = self
+        
         persistentContainer.loadPersistentStores { (persistentStoreDescription, error) in
             do {
                 try self.fetchedResultsController.performFetch()
@@ -40,15 +44,26 @@ class FetchedVC: UIViewController {
             }
             self.tableView.reloadData()
         }
-        
-        tableView.register(UINib(nibName: "FetchedCell", bundle: nil), forCellReuseIdentifier: "FetchedCell")
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.reloadData()
+        requestCoreData()
     }
     
     @IBAction func didTapPopVCButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    private func requestCoreData() {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request: NSFetchRequest<Channel> = Channel.fetchRequest()
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try context.fetch(request)
+            print(results)
+        } catch {
+            print("ERROR")
+        }
     }
 }
 
