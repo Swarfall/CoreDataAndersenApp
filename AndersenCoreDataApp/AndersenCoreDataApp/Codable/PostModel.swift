@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Post: Encodable {
+class Post: Encodable, Decodable {
     var body: String
     var id: Int
     var title: String

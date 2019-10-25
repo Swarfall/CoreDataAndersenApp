@@ -7,3 +7,26 @@
 //
 
 import Foundation
+
+class UserGetModel: Decodable {
+    var results: [UserModel]
+}
+
+class UserModel: Decodable {
+    var name: NameUserModel
+    var location: LocationModel
+}
+
+class NameUserModel: Decodable {
+    var title: String
+    var first: String
+    var last: String
+}
+
+class LocationModel: Decodable {
+    var street: StreetModel
+}
+
+class StreetModel: Decodable {
+    var name: String
+}

@@ -9,17 +9,16 @@
 import Foundation
 import UIKit
 
-//class Person: Decodable {
-//    var gender: String
-//    var name: [String: Person]
-//    var country: []
-//}
-//
-//class Person: Decodable {
-//    var first: String
-//    var last: String
-//}
-//
-//class Country: Decodable {
-//    
-//}
+class User: Decodable {
+    let company: [String: String]
+    let email: String
+    let id: Int
+    let name: String
+    let phone: String
+    let username: String
+    let website: String
+}
+
+
+
+
